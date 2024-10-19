@@ -16,7 +16,7 @@ jobs:
           node-version: "20"
 
       - run: cd tobtoby_frontend && npm install
-      - run: cd tobtoby_frontend && npm run
+      - run: cd tobtoby_frontend && npm run build
 
       - name: Verify build directory
         run: |
