@@ -16,7 +16,14 @@ jobs:
           node-version: "20"
 
       - run: cd tobtoby_frontend && npm install
-      - run: cd tobtoby_frontend && npm run build
+      - run: cd tobtoby_frontend && npm run
+
+      - name: Verify build directory
+        run: |
+          if [ ! -d "./tobtoby_frontend/dist" ]; then
+            echo "Build directory does not exist"
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
