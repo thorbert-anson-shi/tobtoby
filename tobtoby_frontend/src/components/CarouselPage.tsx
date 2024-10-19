@@ -20,9 +20,7 @@ export default function CarouselPage(props: CarouselPageProps) {
         <For each={props.dataArrays}>
           {(dataArray) => (
             <For each={dataArray}>
-              {(library) => (
-                <LogoText src={"src/assets/" + library[1]} name={library[0]} />
-              )}
+              {(library) => <LogoText src={library[1]} name={library[0]} />}
             </For>
           )}
         </For>

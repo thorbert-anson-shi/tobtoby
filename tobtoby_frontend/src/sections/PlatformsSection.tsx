@@ -38,6 +38,7 @@ export default function PlatformsSection() {
 
   let carouselPage: any;
   onMount(() => {
+    console.log(django);
     let carouselContainer = document.getElementById("carousel-container");
 
     if (carouselContainer != null) {
