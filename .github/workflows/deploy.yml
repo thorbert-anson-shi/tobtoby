@@ -17,6 +17,8 @@ jobs:
 
       - run: cd tobtoby_frontend && npm install
       - run: cd tobtoby_frontend && npm run build
+      - run: pwd
+      - run: ls -al
 
       - name: Verify build directory
         run: |
