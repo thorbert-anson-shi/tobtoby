@@ -1,26 +1,30 @@
-import type { Component } from 'solid-js';
+import type { Component } from "solid-js";
+import { lazy, onMount } from "solid-js";
 
-import logo from './logo.svg';
-import styles from './App.module.css';
+// First section to load
+import HeroSection from "./sections/HeroSection";
+
+// Lazy load the other sections to improve responsiveness
+const ValuesSection = lazy(() => import("./sections/ValuesSection"));
+const SkillsSection = lazy(() => import("./sections/SkillsSection"));
+const PlatformsSection = lazy(() => import("./sections/PlatformsSection"));
+const ProjectsSection = lazy(() => import("./sections/ProjectsSection"));
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
+    <>
+      <div class="flex h-screen w-screen flex-col items-center *:shrink-0">
+        <HeroSection />
+        {/* <ValuesSection /> */}
+        <section class="flex h-full w-full flex-col justify-center md:flex-row md:space-x-10">
+          <SkillsSection />
+          <PlatformsSection />
+        </section>
+        <ProjectsSection />
+        {/* <Blog /> */}
+        {/* <ExportSection /> */}
+      </div>
+    </>
   );
 };
 
