@@ -1,26 +1,39 @@
 import { onMount } from "solid-js";
 import CarouselPage from "../components/CarouselPage";
 
+import html from "../assets/html.svg";
+import css from "../assets/css.svg";
+import typescript from "../assets/typescript.svg";
+import python from "../assets/python.svg";
+import java from "../assets/java.svg";
+import rust from "../assets/rust.svg";
+import reactjs from "../assets/reactjs.svg";
+import solidjs from "../assets/solidjs.svg";
+import tailwindcss from "../assets/tailwindcss.svg";
+import nextjs from "../assets/nextjs.svg";
+import django from "../assets/django-light.svg";
+import djangoRestFramework from "../assets/django-rest-framework.png";
+
 export default function PlatformsSection() {
   const languages: [name: string, imagePath: string][] = [
-    ["HTML", "html.svg"],
-    ["CSS", "css.svg"],
-    ["TypeScript", "typescript.svg"],
-    ["Python", "python.svg"],
-    ["Java", "java.svg"],
-    ["Rust", "rust.svg"],
+    ["HTML", html],
+    ["CSS", css],
+    ["TypeScript", typescript],
+    ["Python", python],
+    ["Java", java],
+    ["Rust", rust],
   ];
 
   const libraries: [name: string, imagePath: string][] = [
-    ["React", "reactjs.svg"],
-    ["Solid", "solidjs.svg"],
-    ["Tailwind CSS", "tailwindcss.svg"],
+    ["React", reactjs],
+    ["Solid", solidjs],
+    ["Tailwind CSS", tailwindcss],
   ];
 
   const frameworks: [name: string, imagePath: string][] = [
-    ["Next.js", "nextjs.svg"],
-    ["Django", "django-light.svg"],
-    ["Django REST framework", "django-rest-framework.png"],
+    ["Next.js", nextjs],
+    ["Django", django],
+    ["Django REST framework", djangoRestFramework],
   ];
 
   let carouselPage: any;
