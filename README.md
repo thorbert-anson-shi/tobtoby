@@ -16,7 +16,7 @@ In this README, I aim to document the challenges I face through the process of c
 
 # Version history
 
-### **v0.1.0-alpha** | released: 2024-10-20
+### **v0.1.0-alpha** | released: 2024-10-21
 
 I faced some issues on deployment, especially regarding the inclusion of static assets in my built project.
 
@@ -24,6 +24,7 @@ I faced some issues on deployment, especially regarding the inclusion of static 
 
    - Adding static assets to the <code>/public</code> directory.
    - Changing the <code>publicDir</code> config in <code>vite.config.ts</code> depending on where your static directory is.
+   - Importing static assets explicitly using the <code>import <asset_name> from "<file_path>"</code> statement.
 
    If these steps aren't taken, then <code>vite</code> wouldn't build your project with the static files in it.
 
