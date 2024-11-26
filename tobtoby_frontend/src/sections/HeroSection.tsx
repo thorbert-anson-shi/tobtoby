@@ -10,7 +10,7 @@ export default function HeroSection(props: any) {
   };
 
   return (
-    <div
+    <section
       ref={props.ref}
       class="flex h-full w-full flex-col items-center justify-center text-xl md:text-3xl"
     >
@@ -35,6 +35,6 @@ export default function HeroSection(props: any) {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

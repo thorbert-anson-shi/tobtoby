@@ -13,7 +13,7 @@ export default function CarouselPage(props: CarouselPageProps) {
     <section
       id={props.id != null ? props.id : ""}
       ref={props.ref}
-      class="flex h-full w-fit snap-center flex-col items-center justify-start gap-y-5 md:gap-y-10"
+      class="flex h-full w-fit snap-center flex-col items-center justify-start gap-y-5 md:gap-y-16"
     >
       <header class="text-xl font-[600] md:text-3xl">{props.header}</header>
       <div class="flex w-fit flex-row flex-wrap items-baseline gap-y-10">

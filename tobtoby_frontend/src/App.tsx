@@ -14,10 +14,10 @@ const ExperiencesSection = lazy(() => import("./sections/ExperiencesSection"));
 const App: Component = () => {
   return (
     <>
-      <div class="flex h-screen w-4/5 flex-col items-center *:shrink-0">
+      <div class="flex h-screen w-4/5 flex-col items-center gap-y-36 *:shrink-0">
         <HeroSection />
         {/* <ValuesSection /> */}
-        <section class="flex h-3/5 flex-col justify-center md:flex-row md:space-x-10">
+        <section class="flex h-fit flex-col justify-center md:flex-row md:space-x-10">
           <SkillsSection />
           <PlatformsSection />
         </section>
@@ -25,7 +25,9 @@ const App: Component = () => {
         <ExperiencesSection />
         {/* <Blog /> */}
         {/* <ExportSection /> */}
-        <footer class="py-10">Copyright Tober 2024</footer>
+        <footer class="py-10">
+          © 2024 Thorbert Anson Shi. All rights reserved.
+        </footer>
       </div>
     </>
   );

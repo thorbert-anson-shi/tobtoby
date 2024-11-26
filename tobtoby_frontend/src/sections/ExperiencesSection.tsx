@@ -11,13 +11,13 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    role: "Software Engineer",
-    group: "Narada Cup 2022: Sognare",
-    startDate: new Date(2022, 8),
-    endDate: new Date(2022, 10),
+    role: "Peer Educator",
+    group: "DDP-0 Fasilkom UI",
+    startDate: new Date(2024, 8),
+    endDate: new Date(2024, 10),
     active: false,
     description:
-      "I created an automated ticketing system using Google Sheets and Google Apps Script. It successfully handled reservations from a total of 195 participants.",
+      "Along with a partner, I taught a group of 4 mentees the basics of programming, mainly using the Python programming language.",
   },
   {
     role: "Backend Engineer",
@@ -28,21 +28,27 @@ const experiences: Experience[] = [
     description:
       "Alongside 5 peers, I helped build the backend for Adkesma Issue Tracker using the Django REST Framework.",
   },
+  {
+    role: "Software Engineer",
+    group: "Narada Cup 2022: Sognare",
+    startDate: new Date(2022, 8),
+    endDate: new Date(2022, 10),
+    active: false,
+    description:
+      "I created an automated ticketing system using Google Sheets and Google Apps Script. It successfully handled reservations from a total of 195 participants.",
+  },
 ];
 
 export default function ExperiencesSection() {
   return (
     <>
-      <div
-        id="experiences-container"
-        class="my-5 flex w-4/5 flex-col items-center gap-y-5"
-      >
+      <section class="flex w-4/5 flex-col items-center gap-y-5">
         <h1 class="self-end text-xl font-[600] md:text-3xl">
           Relevant Experiences
         </h1>
         <For each={experiences}>
           {(experience) => (
-            <section class="flex w-full flex-col border-2 border-black p-5">
+            <div class="flex w-full flex-col border-2 border-black p-5">
               <h1 class="text-lg font-[600] md:text-xl">{experience.role}</h1>
               <h2 class="text-neutral-600">
                 {experience.group}
@@ -62,10 +68,10 @@ export default function ExperiencesSection() {
               <p class="mt-2 border-t-2 border-neutral-300 py-2">
                 {experience.description}
               </p>
-            </section>
+            </div>
           )}
         </For>
-      </div>
+      </section>
     </>
   );
 }

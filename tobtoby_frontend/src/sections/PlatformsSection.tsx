@@ -1,18 +1,18 @@
 import { onMount } from "solid-js";
 import CarouselPage from "../components/CarouselPage";
 
-import html from "../assets/html.svg";
-import css from "../assets/css.svg";
-import typescript from "../assets/typescript.svg";
-import python from "../assets/python.svg";
-import java from "../assets/java.svg";
-import rust from "../assets/rust.svg";
-import reactjs from "../assets/reactjs.svg";
-import solidjs from "../assets/solidjs.svg";
-import tailwindcss from "../assets/tailwindcss.svg";
-import nextjs from "../assets/nextjs.svg";
-import django from "../assets/django-light.svg";
-import djangoRestFramework from "../assets/django-rest-framework.png";
+import html from "../assets/languages/html.svg";
+import css from "../assets/languages/css.svg";
+import typescript from "../assets/languages/typescript.svg";
+import python from "../assets/languages/python.svg";
+import java from "../assets/languages/java.svg";
+import rust from "../assets/languages/rust.svg";
+import reactjs from "../assets/frameworks/reactjs.svg";
+import solidjs from "../assets/frameworks/solidjs.svg";
+import tailwindcss from "../assets/frameworks/tailwindcss.svg";
+import nextjs from "../assets/frameworks/nextjs.svg";
+import django from "../assets/frameworks/django-light.svg";
+import djangoRestFramework from "../assets/frameworks/django-rest-framework.png";
 
 export default function PlatformsSection() {
   const languages: [name: string, imagePath: string][] = [
