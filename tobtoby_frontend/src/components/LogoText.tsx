@@ -9,9 +9,9 @@ export default function LogoText(props: LogoTextProps) {
       <img
         src={props.src}
         alt={props.name}
-        class="h-20 max-w-20 object-contain"
+        class="h-20 max-w-16 object-contain md:max-w-20"
       />
-      <p class="max-w-28 text-center">{props.name}</p>
+      <p class="max-w-28 text-center text-lg">{props.name}</p>
     </div>
   );
 }
