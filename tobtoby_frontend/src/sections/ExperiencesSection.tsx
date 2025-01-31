@@ -1,4 +1,5 @@
-import { For } from "solid-js";
+import { For, useContext } from "solid-js";
+import { ThemeContext } from "../components/contexts/ThemeContext";
 
 interface Experience {
   role: string;
@@ -40,38 +41,46 @@ const experiences: Experience[] = [
 ];
 
 export default function ExperiencesSection() {
+  const themeManager = useContext(ThemeContext);
   return (
-    <>
-      <section class="flex w-4/5 flex-col items-center gap-y-5">
-        <h1 class="self-end text-xl font-[600] md:text-3xl">
-          Relevant Experiences
-        </h1>
-        <For each={experiences}>
-          {(experience) => (
-            <div class="flex w-full flex-col border-2 border-black p-5">
-              <h1 class="text-lg font-[600] md:text-xl">{experience.role}</h1>
-              <h2 class="text-neutral-600">
-                {experience.group}
-                {" | "}
-                {experience.startDate.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                })}
-                {" - "}
-                {experience.endDate
-                  ? experience.endDate?.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                    })
-                  : "Present"}
-              </h2>
-              <p class="mt-2 border-t-2 border-neutral-300 py-2">
-                {experience.description}
-              </p>
-            </div>
-          )}
-        </For>
-      </section>
-    </>
+    <section class="flex !h-fit w-4/5 flex-col items-center gap-y-5">
+      <h1 class="self-end text-xl font-[600] md:text-3xl">
+        Relevant Experiences
+      </h1>
+      <For each={experiences}>
+        {(experience) => (
+          <div
+            style={{
+              "border-color": themeManager.lightMode() ? "#222222" : "#ffffff",
+            }}
+            class="flex w-full flex-col border-2 p-5"
+          >
+            <h1 class="text-lg font-[600] md:text-xl">{experience.role}</h1>
+            <h2
+              style={{
+                color: themeManager.lightMode() ? "#525252" : "#a4a4a4",
+              }}
+            >
+              {experience.group}
+              {" | "}
+              {experience.startDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+              })}
+              {" - "}
+              {experience.endDate
+                ? experience.endDate?.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                  })
+                : "Present"}
+            </h2>
+            <p class="mt-2 border-t-2 border-neutral-300 py-2">
+              {experience.description}
+            </p>
+          </div>
+        )}
+      </For>
+    </section>
   );
 }

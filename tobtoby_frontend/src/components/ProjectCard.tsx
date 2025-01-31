@@ -1,3 +1,6 @@
+import { useContext } from "solid-js";
+import { ThemeContext } from "./contexts/ThemeContext";
+
 export interface Project {
   thumbnail: string;
   altText: string;
@@ -8,17 +11,35 @@ export interface Project {
 }
 
 export default function ProjectCard(props: Project) {
+  const themeManager = useContext(ThemeContext);
   return (
-    <div class="hover-float flex h-fit w-full shrink-0 flex-col border-2 border-black md:w-96">
+    <div
+      style={{
+        "border-color": themeManager.lightMode() ? "#222222" : "#ffffff",
+      }}
+      class={
+        "flex h-fit w-full shrink-0 flex-col border-2 md:w-96 " +
+        (themeManager.lightMode() ? "hover-float" : "hover-glow")
+      }
+    >
       <img
         src={props.thumbnail}
         alt={props.altText}
         draggable={false}
-        class="flex h-96 shrink-0 flex-col justify-center border-b-2 border-black object-cover text-center"
+        class="flex h-96 shrink-0 flex-col justify-center border-b-2 border-inherit object-cover text-center"
       />
-      <div class="flex h-48 flex-col p-5 leading-snug">
+      <div
+        class={
+          "flex h-48 flex-col bg-gradient-to-b p-5 leading-snug " +
+          (themeManager.lightMode()
+            ? "from-neutral-200 to-neutral-300"
+            : "from-neutral-800 to-neutral-700")
+        }
+      >
         <h1 class="text-lg font-[600]">{props.projectName}</h1>
-        <p class="text-neutral-600">{props.description}</p>
+        <p style={{ color: themeManager.lightMode() ? "#525252" : "#a4a4a4" }}>
+          {props.description}
+        </p>
         <div
           id="links"
           class="flex grow flex-row items-end justify-end gap-x-5 justify-self-end pt-5 text-xl"
