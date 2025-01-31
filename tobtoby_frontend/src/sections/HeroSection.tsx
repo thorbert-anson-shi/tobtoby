@@ -1,7 +1,11 @@
+import { useContext } from "solid-js";
+import { ThemeContext } from "../components/contexts/ThemeContext";
+import TypewriterText from "../components/TypewriterText";
+
 export default function HeroSection(props: any) {
   const data = {
     displayName: "Thorbert",
-    role: "web developer",
+    roles: ["student", "tryhard", "web developer"],
     socials: {
       email: "tobyas2005139@gmail.com",
       linkedin: "https://www.linkedin.com/in/thorbertansonshi/",
@@ -9,8 +13,10 @@ export default function HeroSection(props: any) {
     },
   };
 
+  const themeManager = useContext(ThemeContext);
+
   return (
-    <div
+    <section
       ref={props.ref}
       class="flex h-full w-full flex-col items-center justify-center text-xl md:text-3xl"
     >
@@ -20,7 +26,15 @@ export default function HeroSection(props: any) {
         </h1>
         <h2>
           I would call myself a{" "}
-          <span class="bg-black px-1 text-white">{data.role}</span>
+          <span
+            class="px-1"
+            style={{
+              "background-color": themeManager.lightMode() ? "#000" : "#FFF",
+              color: themeManager.lightMode() ? "#FFF" : "#000",
+            }}
+          >
+            <TypewriterText wordList={data.roles} />
+          </span>
         </h2>
         <h2>But I can do other stuff too!</h2>
         <div id="socials" class="mt-3 flex flex-row space-x-5">
@@ -35,6 +49,6 @@ export default function HeroSection(props: any) {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

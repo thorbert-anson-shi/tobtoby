@@ -1,65 +1,68 @@
-import { onMount } from "solid-js";
+import { onMount, useContext } from "solid-js";
 import CarouselPage from "../components/CarouselPage";
 
-import html from "../assets/html.svg";
-import css from "../assets/css.svg";
-import typescript from "../assets/typescript.svg";
-import python from "../assets/python.svg";
-import java from "../assets/java.svg";
-import rust from "../assets/rust.svg";
-import reactjs from "../assets/reactjs.svg";
-import solidjs from "../assets/solidjs.svg";
-import tailwindcss from "../assets/tailwindcss.svg";
-import nextjs from "../assets/nextjs.svg";
-import django from "../assets/django-light.svg";
-import djangoRestFramework from "../assets/django-rest-framework.png";
+import html from "../assets/languages/html.svg";
+import css from "../assets/languages/css.svg";
+import typescript from "../assets/languages/typescript.svg";
+import python from "../assets/languages/python.svg";
+import java from "../assets/languages/java.svg";
+import rust from "../assets/languages/rust.svg";
+import rustDark from "../assets/languages/rust-dark.png";
+
+import reactjs from "../assets/frameworks/reactjs.svg";
+import solidjs from "../assets/frameworks/solidjs.svg";
+import tailwindcss from "../assets/frameworks/tailwindcss.svg";
+
+import nextjsLight from "../assets/frameworks/nextjs-dark.svg";
+import nextjsDark from "../assets/frameworks/nextjs-light.svg";
+
+import djangoLight from "../assets/frameworks/django-light.svg";
+import djangoDark from "../assets/frameworks/django-dark.svg";
+
+import { ThemeContext } from "../components/contexts/ThemeContext";
 
 export default function PlatformsSection() {
-  const languages: [name: string, imagePath: string][] = [
-    ["HTML", html],
-    ["CSS", css],
-    ["TypeScript", typescript],
-    ["Python", python],
-    ["Java", java],
-    ["Rust", rust],
+  const languages: [name: string, imagePath: string[]][] = [
+    ["HTML", [html, html]],
+    ["CSS", [css, css]],
+    ["TypeScript", [typescript, typescript]],
+    ["Python", [python, python]],
+    ["Java", [java, java]],
+    ["Rust", [rust, rustDark]],
   ];
 
-  const libraries: [name: string, imagePath: string][] = [
-    ["React", reactjs],
-    ["Solid", solidjs],
-    ["Tailwind CSS", tailwindcss],
+  const libraries: [name: string, imagePath: string[]][] = [
+    ["React", [reactjs, reactjs]],
+    ["Solid", [solidjs, solidjs]],
+    ["Tailwind CSS", [tailwindcss, tailwindcss]],
   ];
 
-  const frameworks: [name: string, imagePath: string][] = [
-    ["Next.js", nextjs],
-    ["Django", django],
-    ["Django REST framework", djangoRestFramework],
+  const frameworks: [name: string, imagePath: string[]][] = [
+    ["Next.js", [nextjsLight, nextjsDark]],
+    ["Django", [djangoLight, djangoDark]],
   ];
 
-  let carouselPage: any;
-  onMount(() => {
-    console.log(django);
-    let carouselContainer = document.getElementById("carousel-container");
-
-    if (carouselContainer != null) {
-      carouselContainer.style.width =
-        carouselPage.getBoundingClientRect().width + "px";
-    }
-  });
+  const themeManager = useContext(ThemeContext);
 
   return (
-    <div id="carousel-container" class="flex h-full flex-col justify-center">
+    <div
+      id="carousel-container"
+      class="flex h-fit basis-2/3 flex-col justify-center"
+    >
       <div class="relative flex flex-row">
         <button
           id="scroll-left"
-          onClick={() => document.getElementById("carousel")?.scrollBy(-100, 0)}
+          onClick={() => document.getElementById("carousel")?.scrollBy(-500, 0)}
           class="absolute left-[2px] h-full w-8 duration-200 hover:bg-neutral-300 hover:bg-opacity-30"
         >
           <i class="fa-solid fa-chevron-left" aria-label="scroll left"></i>
         </button>
         <div
           id="carousel"
-          class="flex h-fit w-fit snap-x snap-mandatory flex-row overflow-x-hidden scroll-smooth border-black *:shrink-0 md:h-fit md:border-x-2"
+          style={{
+            "border-color": themeManager.lightMode() ? "#222222" : "#f9f9f9",
+          }}
+          class="flex w-full snap-x snap-mandatory flex-row overflow-x-hidden scroll-smooth *:shrink-0 md:border-x-2"
         >
           <CarouselPage
             dataArrays={[languages]}
@@ -67,7 +70,6 @@ export default function PlatformsSection() {
             id="languages"
           />
           <CarouselPage
-            ref={carouselPage}
             dataArrays={[libraries, frameworks]}
             header="Libraries and Frameworks"
             id="libraries-and-frameworks"
@@ -75,7 +77,7 @@ export default function PlatformsSection() {
         </div>
         <button
           id="scroll-right"
-          onClick={() => document.getElementById("carousel")?.scrollBy(100, 0)}
+          onClick={() => document.getElementById("carousel")?.scrollBy(500, 0)}
           class="absolute right-[2px] h-full w-8 duration-200 hover:bg-neutral-300 hover:bg-opacity-30"
         >
           <i class="fa-solid fa-chevron-right" aria-label="scroll right"></i>
