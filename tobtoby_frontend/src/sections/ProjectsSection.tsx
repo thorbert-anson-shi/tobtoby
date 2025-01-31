@@ -23,9 +23,9 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section class="flex h-fit w-fit max-w-[80%] flex-col justify-center">
-      <h1 class="text-3xl font-[600]">Projects</h1>
-      <div class="flex w-fit max-w-full flex-row gap-x-10 overflow-x-scroll py-5">
+    <section class="flex h-fit w-4/5 flex-col justify-center">
+      <h1 class="pl-5 text-3xl font-[600]">Projects</h1>
+      <div class="flex w-full flex-row gap-x-10 overflow-x-scroll p-5">
         <For each={projects}>{(project) => ProjectCard(project)}</For>
       </div>
     </section>
