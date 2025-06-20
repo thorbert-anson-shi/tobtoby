@@ -12,6 +12,22 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    role: "Technical Committee",
+    group: "COMPFEST 17",
+    startDate: new Date(2025, 2),
+    endDate: null,
+    active: true,
+    description: "I am working on COMPFEST 17's CTF platform and AnD infrastructure."
+  },
+  {
+    role: "Head of IT Development",
+    group: "PPMB KMBUI 2025",
+    startDate: new Date(2025, 4),
+    endDate: null,
+    active: true,
+    description: "I am working on maintaining and renewing PPMB KMBUI's website for the upcoming 2025 batch. It is built in Next.js and uses a variety of libraries such as react-hook-form, Embla Carousel, and Zod."
+  },
+  {
     role: "Peer Educator",
     group: "DDP-0 Fasilkom UI",
     startDate: new Date(2024, 8),
@@ -24,7 +40,7 @@ const experiences: Experience[] = [
     role: "Backend Engineer",
     group: "BEM Fasilkom, Information Technology Development Dept.",
     startDate: new Date(2024, 6),
-    endDate: null,
+    endDate: new Date(2024, 11),
     active: true,
     description:
       "Alongside 5 peers, I helped build the backend for Adkesma Issue Tracker using the Django REST Framework.",
@@ -70,9 +86,9 @@ export default function ExperiencesSection() {
               {" - "}
               {experience.endDate
                 ? experience.endDate?.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                  })
+                  year: "numeric",
+                  month: "long",
+                })
                 : "Present"}
             </h2>
             <p class="mt-2 border-t-2 border-neutral-300 py-2">

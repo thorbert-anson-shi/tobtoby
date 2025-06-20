@@ -49,3 +49,6 @@ Also, look at that adorable favicon 🥺✨
 I added dark mode using SolidJS's context tools. In addition to that, I also added a circular cursor that works with both light and dark mode.
 
 I also added a typewriter effect on the homepage. I think it looks quite neat, and is quite easy to implement if I ever need to use it in the future.
+
+### v0.3.1-alpha | released: 2025-6-20
+Information update for the experiences section. Updated old ones and added some new ones
